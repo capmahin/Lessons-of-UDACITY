@@ -44,9 +44,11 @@ function fillScene() {
 
 	// marks
 	var cube = new THREE.Mesh(
-		new THREE.CubeGeometry( 20, 4, 15 ), mark12Material );
-	cube.position.x = 60;
-	cube.position.y = 9;
+		new THREE.CubeGeometry( 20, 4, 15 ), mark12Material )
+		;
+		cube.rotation.y = -60 * Math.PI/180;
+	// cube.position.x = 60;
+	// cube.position.y = 9;
 	scene.add( cube );
 
 	cube = new THREE.Mesh(
