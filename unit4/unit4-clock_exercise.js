@@ -75,8 +75,12 @@ function fillScene() {
 		new THREE.CubeGeometry( 70, 4, 4 ), minuteHandMaterial );
 	cube.position.y = 14;
 	cube.position.x = 70/2 - 10;
+    
+	var minuteHand.rotation = new THREE.object3D();
+	minuteHand.add(cube);
+
 	cube.rotation.y = -60 * Math.PI/180;
-	scene.add( cube );
+	scene.add( minuteHand);
 
 	var sphere = new THREE.Mesh(
 		new THREE.SphereGeometry( 0.5, 32, 16 ), hourHandMaterial );
