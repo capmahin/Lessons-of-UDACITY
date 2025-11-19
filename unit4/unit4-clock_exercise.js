@@ -76,7 +76,7 @@ function fillScene() {
 	cube.position.y = 14;
 	cube.position.x = 70/2 - 10;
     
-	var minuteHand.rotation = new THREE.object3D();
+	var minuteHand = new THREE.Object3D();
 	minuteHand.add(cube);
 
 	cube.rotation.y = -60 * Math.PI/180;

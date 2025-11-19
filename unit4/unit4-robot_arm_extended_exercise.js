@@ -49,10 +49,19 @@ function fillScene() {
 
 	createRobotCrane( arm, uaLength, robotUpperArmMaterial );
 
+	body = new THREE.Object3D();
+	var bodyLength = 60;
+
+
+	createRobotBody( body, bodyLength, robotBodyMaterial );
+
+
+
 	// Move the forearm itself to the end of the upper arm.
-	forearm.position.y = uaLength;
-	arm.add( forearm );
-	scene.add( arm );
+	arm.position.y = bodyLength;
+	body.add( arm )
+
+	scene.add(body)
 
 	// YOUR CODE HERE
 	body = new THREE.Object3D();
