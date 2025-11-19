@@ -64,6 +64,17 @@ function fillScene() {
 	handLeft.position.y = faLength;
 	forearm.add( handLeft );
 
+
+	handRight = new THREE.Object3D();
+	createRobotGrabber( handRight, handLength, robotHandRightMaterial );
+
+	// Move the hand part to the end of the forearm.
+	handRight.position.y = faLength;
+	forearm.add( handRight );
+
+	handRight.rotation.z = effectController.hz * Math.PI/180; //yaw
+	// negate to go the other direction
+	handRight.position.z = -effectController.htz; //translate
 	// YOUR CODE HERE
 	// Add the second grabber handRight. Note that it uses a different color, defined above
 	// ALSO EDIT render() TO ENABLE CONTROLS FOR GRABBER
