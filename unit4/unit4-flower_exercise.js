@@ -43,7 +43,11 @@ function fillScene() {
 	// Just rotates and positions on the cylinder and petals are needed.
 	var cylinder = new THREE.Mesh( cylGeom, petalMaterial );
 	var petal = new THREE.Object3D();
+	
 	petal.add( cylinder );
+	petal.rotation.z = 90 * Math.PI/180;
+	petal.rotation.y = 15*i * Math.PI/180;
+	petal.position.y = flowerHeight;
 
 	flower.add( petal );
 
