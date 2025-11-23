@@ -15,7 +15,11 @@ function fillScene() {
 	scene.fog = new THREE.Fog( 0xAAAAAA, 2000, 4000 );
 
 	// LIGHTS
-	scene.add( new THREE.AmbientLight( 0x222222 ) );
+	headlight = new THREE.PointLight( 0xFFFFFF, 1.0 );
+	scene.add( headlight );
+	headlight.position.copy( camera.position );
+	renderer.render( scene, camera );
+
 
 	// Student: add a directional light here,
 	// direction to it is -200, 200, -400
