@@ -162,6 +162,37 @@ function createDrinkingBird() {
 	var eyeMaterial = new THREE.MeshPhongMaterial( { color: 0x000000, specular: 0x303030, shininess: 4 } );
 
 	// YOUR CODE HERE
+	// crossbar
+	cylinder = new THREE.Mesh(
+		new THREE.CylinderGeometry(5,5,200,32),crossbarMaterial
+	)
+	cylinder.position.set(0,360,0);
+	cylinder.rotation.x = 90*Math.PI/180.0;
+	scene.add(cylinder);
+	// nose
+	cylinder = new THREE.Mesh(
+		new THREE.CylinderGeometry(6,14,70,32),headMaterial
+	);
+	cylinder.position.set(-70,530,0);
+	cylinder.rotation.z = 90*Math.PI/180.0;
+	scene.add(cylinder);
+	// eyes
+	var sphGeom = new THREE.SphereGeometry(10,32,16);
+	// left eye 
+	sphere = new THREE.Mesh(sphGeom,eyeMaterial);
+	sphere.position.set(-48,560,0);
+	var eye = new THREE.Object3D();
+	eye.add(sphere);
+	eye.rotation.y = 20*Math.PI/180.0;
+	scene.add(eye);
+
+	// right eye
+	sphere = new THREE.Mesh(sphGeom,eyeMaterial);
+	sphere.position.set(-48,560,0);
+	eye = new THREE.Object3D();
+	eye.add(sphere);
+	eye.rotation.y = -20*Math.PI/180.0;
+	scene.add(eye);
 	// Add a crossbar support, a nose, and eyes.
 	// Crossbar: use crossbarMaterial and
 	//   THREE.CylinderGeometry( XX, XX, XX, 32 ) for the tessellation.
