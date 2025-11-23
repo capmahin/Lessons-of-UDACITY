@@ -40,6 +40,28 @@ function createHelix( material, radius, tube, radialSegments, tubularSegments, h
 
 	///////////////
 	// YOUR CODE HERE: remove spheres, use capsules instead, going from point to point.
+	var bottom = new THREE.Vector3();
+	var top = new THREE.Vector3();
+
+	var openBottom = false;
+	var openTop = false;
+	var sine_sign = clockwise ? 1 : -1;
+	bottom.set(radius, -height/2, 0);
+	for( var i = 0; i <= arc*radialSegments ; i++ )
+	{
+		// going from X to Z axis
+		top.set( radius * Math.cos( i * 2*Math.PI / radialSegments ),
+		height * (i/(arc*radialSegments)) - height/2,
+		sine_sign * radius * Math.sin( i * 2*Math.PI / radialSegments ) );
+
+		var capsule = createCapsule( material, tube, top, bottom, tubularSegments, openTop, openBottom );
+
+		helix.add( capsule );
+// after first capsule is laid down, don't need to drew sphare for bottom.
+openBottom = true;
+// make top of previous capsule the bottom of the next on
+		bottom.copy( top );
+	}
 	//
 	var sphGeom = new THREE.SphereGeometry( tube, tubularSegments, tubularSegments/2 );
 	for ( var i = 0; i <= arc*radialSegments ; i++ )
