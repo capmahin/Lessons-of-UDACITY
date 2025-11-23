@@ -216,6 +216,12 @@ function init() {
 	var canvasWidth = 846;
 	var canvasHeight = 494;
 	// For grading the window is fixed in size; here's general code:
+	var light = new THREE.PointLight( 0xFFFFFF, 1.0 );
+	light.position.set( -400, 1200, 300 );
+	light.angle = 20*Math.PI/180;
+	light.exponent = 1;
+	light.target.position.set( 0, 200, 0 );
+	scene.add( light );
 	//var canvasWidth = window.innerWidth;
 	//var canvasHeight = window.innerHeight;
 
