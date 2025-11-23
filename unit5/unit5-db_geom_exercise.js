@@ -162,6 +162,9 @@ function createDrinkingBird() {
 	var eyeMaterial = new THREE.MeshPhongMaterial( { color: 0x000000, specular: 0x303030, shininess: 4 } );
 
 	// YOUR CODE HERE
+	var light = new THREE.PointLight( 0xFFFFFF, 1.5 );
+	light.position.set( -200,200,-400 );
+	scene.add(light);
 	// crossbar
 	cylinder = new THREE.Mesh(
 		new THREE.CylinderGeometry(5,5,200,32),crossbarMaterial
