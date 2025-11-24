@@ -1,6 +1,9 @@
 "use strict"; // good practice - see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 ////////////////////////////////////////////////////////////////////////////////
 // Adding shadows to a spotlight
+light.cast = true;
+solidGround.receiveShadow = true;
+renderer.shadowMapEnabled = true;
 ////////////////////////////////////////////////////////////////////////////////
 /* global THREE, Coordinates, document, window, dat, $ */
 
