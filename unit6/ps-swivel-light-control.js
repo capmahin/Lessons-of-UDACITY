@@ -259,6 +259,18 @@ function render() {
 	renderer.render(scene, camera);
 }
 
+// altitide
+light.position.y = Math.sin(
+	effectController.altitude * Math.PI / 180.0
+)
+// azimuth
+var length = 1 - light.position.y*light.position.y;
+light.position.x = length * Math.cos(
+	effectController.azimuth * Math.PI / 180.0
+)
+light.position.z = length * Math.sin(
+	effectController.azimuth * Math.PI / 180.0
+)
 function setupGui() {
 	effectController = {
 		angle: 160
