@@ -240,6 +240,19 @@ function init() {
 	canvasWidth = 846;
 	canvasHeight = 494;
 	// For grading the window is fixed in size; here's general code:
+   
+	renderer.render(scene, camera);
+
+	rearCam.position.copy( camera.position );
+	rearTarget.copy(camera.position);
+	rearTarget.sub( cameraControls.target );
+	rearTarget.add(camera.position)
+	rearCam.lookAt(rearTarget);
+
+	// rearview render
+
+	renderer.enableScissorTest(true)
+
 	//var canvasWidth = window.innerWidth;
 	//var canvasHeight = window.innerHeight;
 
