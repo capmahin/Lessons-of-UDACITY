@@ -215,6 +215,17 @@ function init() {
 	canvasWidth = 846;
 	canvasHeight = 494;
 	// For grading the window is fixed in size; here's general code:
+	frontCam = new THREE.OrthographicCamera(
+		-aspectRatio*viewSize / 2, aspectRatio*viewSize / 2,
+		viewSize / 2, -viewSize / 2,
+		-1000, 1000 );
+		frontCam.up.set(0,1,0);
+		sideCam = new THREE.OrthographicCamera(
+		-aspectRatio*viewSize / 2, aspectRatio*viewSize / 2,
+		viewSize / 2, -viewSize / 2,
+		-1000, 1000 );
+		sideCam.up.set(0,1,0);
+	
 	//var canvasWidth = window.innerWidth;
 	//var canvasHeight = window.innerHeight;
 	var aspectRatio = canvasWidth/canvasHeight;
