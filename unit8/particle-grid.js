@@ -17,6 +17,16 @@ function fillScene() {
 	var geometry = new THREE.Geometry();
 
 	// Student: rewrite the following vertex generation code so that
+
+    for (var x = -1000; x < 1000; x += 100){
+		for (var y = -1000; y < 1000; y += 100){
+			for (var z = -1000; z < 1000; z += 100){
+				var vertex = new THREE.Vector3(x, y, z);
+				geometry.vertices.push( vertex );
+			}
+		}
+	}
+
 	// vertices are generated every 100 units:
 	// -1000,-1000,-1000 to 1000,1000,1000, e.g.
 	// at -1000,-1000,-1000, -900,-1000,-1000,
