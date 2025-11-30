@@ -270,6 +270,14 @@ function init() {
 	var canvasWidth = 846;
 	var canvasHeight = 494;
 	// For grading the window is fixed in size; here's general code:
+
+   var texture = THREE.ImageUtils.loadTexture("textures/grass512.jpg");
+   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+   texture.repeat.set( 10,10 );
+   var solidGround = new THREE.Mesh( 
+	new THREE.PlaneGeometry( 10000, 10000, 100, 100 ),
+    new THREE.MeshLambertMaterial( { map: texture } ));
+
 	//var canvasWidth = window.innerWidth;
 	//var canvasHeight = window.innerHeight;
 	var canvasRatio = canvasWidth / canvasHeight;
