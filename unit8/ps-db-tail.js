@@ -271,6 +271,15 @@ function init() {
 	var canvasWidth = 846;
 	var canvasHeight = 494;
 	// For grading the window is fixed in size; here's general code:
+
+   var tailTexture = THREE.ImageUtils.loadTexture("textures/feather.png");
+
+   var tail =  new THREE.Mesh(
+	new THREE.PlaneGeometry( 100, 100, 1, 1 ),
+	new THREE.MeshLambertMaterial( { map: tailTexture, side: THREE.DoubleSide,
+		transparent:true
+	 } ) );
+
 	//var canvasWidth = window.innerWidth;
 	//var canvasHeight = window.innerHeight;
 	var canvasRatio = canvasWidth / canvasHeight;
