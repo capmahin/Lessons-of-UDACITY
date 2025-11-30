@@ -9,6 +9,13 @@
 
 var path = "";	// STUDENT: set to "" to run on your computer, "/" for submitting code to Udacity
 
+
+var uvs = [];
+uvs.push(new THREE.Vector2(0.75, 0.25));
+uvs.push(new THREE.Vector2(1.0, 0.25));
+uvs.push(new THREE.Vector2(1.0, 0.5));
+uvs.push(new THREE.Vector2(0.75, 0.5));
+
 var camera, scene, renderer;
 var cameraControls, effectController;
 var clock = new THREE.Clock();
