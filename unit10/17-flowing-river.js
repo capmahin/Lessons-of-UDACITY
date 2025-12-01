@@ -87,6 +87,19 @@ function init() {
 	var canvasWidth = 846;
 	var canvasHeight = 494;
 	// For grading the window is fixed in size; here's general code:
+
+   var time = clock.getElapsedTime();
+   texture[effectController.mtlName].offset.set( 0,time );
+
+   var time = clock.getElapsedTime();
+   texture[effectController.mtlName].offset= new THREE.Vector2( 0,time );
+
+   var time = clock.getElapsedTime();
+
+   //add some wobble
+   texture[effectController.mtlName].offset.set(0.2 *Math.sin(2*time),time);
+   texture[effectController.mtlName].repeat.set( effectController.repeat, effectController.repeat/3 );
+
 	//var canvasWidth = window.innerWidth;
 	//var canvasHeight = window.innerHeight;
 	var canvasRatio = canvasWidth / canvasHeight;
