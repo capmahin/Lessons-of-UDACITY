@@ -48,7 +48,18 @@ void main() {
 
 	float diffuse = max( dot( normal, lVector ), 0.0);
 
-	// Student: use the vModelPosition as an input to a function and
+
+
+	// Student: use the vModelPosition as an input to a function 
+   
+	diffiuse *= (0.5 + 
+	0.5 * sin(uScale * vModelPosition.x)*
+	0.5 * sin(uScale * vModelPosition.y)*
+	0.5 * sin(uScale * vModelPosition.z)
+	);
+
+	gl_FragColor = vec4( ukd * uMaterialColor * uDirLightColor * diffiuse, 1.0)
+
 	// then multiply the diffuse contribution by this amount.
 
 	gl_FragColor = vec4( uKd * uMaterialColor * uDirLightColor * diffuse, 1.0 );
