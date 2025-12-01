@@ -45,9 +45,20 @@ void main() {
 	// diffuse: N * L. Normal must be normalized, since it's interpolated.
 	vec3 normal = normalize( vNormal );
 
-	// Student: check the diffuse dot product against uBorder and adjust
-	// this diffuse value accordingly.
-	float diffuse = max( dot( normal, lVector ), 0.0);
+	// Implement two-tone shading based on the border value
+	
+	float diffuse = dot( normal, lVector );
+	if(diffuse > 0.6) {diffuse = 1.0;}
+	else if(diffuse > -0.2) {diffuse = 0.7;}
+	else {diffuse = 0.3;}
+
+	
+	// Apply two-tone shading: if diffuse > uBorder, use full lighting, otherwise use reduced lighting
+	if(diffuse > uBorder) {
+		diffuse = 1.0;
+	} else {
+		diffuse = 0.3; // Reduced lighting for areas below the border
+	}
 
 	gl_FragColor = vec4( uKd * uMaterialColor * uDirLightColor * diffuse, 1.0 );
 }
