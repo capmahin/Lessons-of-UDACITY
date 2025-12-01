@@ -23,6 +23,11 @@ function init() {
 	var canvasWidth = 846;
 	var canvasHeight = 494;
 	// For grading the window is fixed in size; here's general code:
+    var pivotHeight = 360;
+	body.position.y = -pivotHeight;
+	head.position.y = -pivotHeight;
+	bodyhead.position.y = pivotHeight;
+
 	//var canvasWidth = window.innerWidth;
 	//var canvasHeight = window.innerHeight;
 
